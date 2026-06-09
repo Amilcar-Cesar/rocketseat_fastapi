@@ -1,7 +1,21 @@
 {
     "files.exclude": {
         "**/__pycache__": true,
+        "**/__pycache__/**": true,
         "**/.pytest_cache": true,
-        "**/*.pyc": {"when": "$(basename).py"}
+        "**/.pytest_cache/**": true,
+        "**/*.pyc": {
+            "when": "$(basename).py"
+        }
+    },
+    "search.exclude": {
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/*.pyc": true
+    },
+    "files.watcherExclude": {
+        "**/__pycache__/**": true,
+        "**/.pytest_cache/**": true,
+        "**/*.pyc": true
     }
 }
