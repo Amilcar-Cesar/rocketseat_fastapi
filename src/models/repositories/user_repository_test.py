@@ -20,3 +20,15 @@ async def test_get_user_by_username():
     repo = UsersRepository()
     response = await repo.get_user_by_username("test_user")
     print(response)
+
+@pytest.mark.asyncio
+@pytest.mark.skip(reason="Update in DB")
+async def test_update_user():
+    repo = UsersRepository()
+    await repo.update_user(1, {"age": 31})
+
+@pytest.mark.asyncio
+@pytest.mark.skip(reason="Delete in DB")
+async def test_delete_user():
+    repo = UsersRepository()
+    await repo.delete_user(2)
