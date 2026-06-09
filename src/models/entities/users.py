@@ -1,7 +1,7 @@
 from sqlalchemy import Table, Column, Integer, String
 from src.models.settings.metadata import metadata
 
-users = Table(
+Users = Table(
     "users",
     metadata,
     Column("id", Integer, primary_key=True),
