@@ -22,6 +22,21 @@ class UsersRepository(UsersRepositoryInterface):
             users_list = [dict(row._mapping) for row in rows]
             return users_list
         
+    async def get_user_by_id(self, user_id: int) -> dict:
+        async with DBConnectionHandler() as db:
+            query = (
+                select(Users)
+                .where(Users.c.id == user_id)
+            )
+            result = await db.session.execute(query)
+            row = result.fetchone()
+
+            if row is None:
+                return None
+            
+            user_dict = dict(row._mapping)
+            return user_dict
+
     async def update_user(self, user_id: int, updated_infos: dict) -> None:
         async with DBConnectionHandler() as db:
             query = (

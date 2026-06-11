@@ -8,7 +8,11 @@ class UsersRepositoryInterface(ABC):
     @abstractmethod
     async def get_user_by_username(self, username: str) ->list[dict]:
         pass
-        
+
+    @abstractmethod 
+    async def get_user_by_id(self, user_id: int) -> dict:
+        pass
+
     @abstractmethod
     async def update_user(self, user_id: int, updated_infos: dict) -> None:
         pass
