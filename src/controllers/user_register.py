@@ -15,7 +15,7 @@ class UserRegister(UserRegisterInterface):
         uf = user_data["uf"]
 
         if uf not in ["MG", "BA", "CE", "SC", "MT"]:
-            raise Exception("Estado inválido para cadastro.")
+            raise Exception("UF inválido para cadastro.")
         
         if age < 0 or age > 150:
             raise Exception("Idade inválida para cadastro.")
